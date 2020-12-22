@@ -1,3 +1,3 @@
 # Textures
 Simple library to represent images and specifically gifs as movable and resizable textures. 
-<div style="width:240px;max-width:100%;"><div style="height:0;padding-bottom:63.33%;position:relative;"><iframe width="240" height="152" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameBorder="0" src="https://imgflip.com/embed/4rcqzv"></iframe></div><p><a href="https://imgflip.com/gif/4rcqzv">via Imgflip</a></p></div>
+<iframe src="https://giphy.com/embed/sIIhZliB2McAo" width="480" height="304" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/nyan-cat-sIIhZliB2McAo">via GIPHY</a></p>
