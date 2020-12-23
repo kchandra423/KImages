@@ -21,3 +21,6 @@ The gifs were animated with the help of this gif decoding library: https://githu
 Uses the Processing graphics library to display images.
 
 With help from :https://github.com/Nathaniel-github
+
+## Possible future plans
+In the future I might update the library to be able to do fancier stuff with the gifs, such as having them only play once, or altering the delay of certain or all frames of the gif, at https://github.com/Nathaniel-github 's request.
