@@ -1,6 +1,5 @@
 # Textures
 
- ![logo](https://media.giphy.com/media/sIIhZliB2McAo/giphy.gif) 
-
-A simple library to represent images and specifically gifs as movable and resizable textures. 
+A simple library to represent images and specifically gifs as movable and resizable textures. Uses processing to draw images. Supports to jpeg, png, and gif files. Although processing already supports gifs, they are not properly animated, and would just be shown as a png, like this:
+![static logo](https://i.ytimg.com/vi/nrdYDI6lTlA/maxresdefault.jpg)
 
