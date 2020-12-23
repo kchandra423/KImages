@@ -1,6 +1,6 @@
 # Textures
 
-A simple library to represent images and specifically gifs as movable and resizable textures. Uses processing to draw images. Supports to jpeg, png, and gif files. Although processing already supports gifs, they are not properly animated, and would just be shown as a png, like this:
+A simple library to represent images and specifically gifs as movable and resizable textures. Uses processing to draw images. Supports jpeg, png, and gif files. Although processing already supports gifs, they are not properly animated, and would just be shown as a png, like this:
 ![static logo](https://i.ytimg.com/vi/nrdYDI6lTlA/maxresdefault.jpg)
 
 However, this library is able to "animate" the gif properly so that is correctly shown like this: 
