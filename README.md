@@ -19,3 +19,5 @@ Textures should be created using the TextureBuilder class, as the Texture class 
 The gifs were animated with the help of this gif decoding library: https://github.com/DhyanB/Open-Imaging
 
 Uses the Processing graphics library to display images.
+
+With help from :https://github.com/Nathaniel-github
