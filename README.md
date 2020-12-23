@@ -16,5 +16,5 @@ The library is in a jar file called textures in the dist folder. You will also n
 Textures should be created using the TextureBuilder class, as the Texture class itself is abstract since gifs use a different subclass than other image types.
 
 ## Credit
-The gifs were animated with the help of this gif decoding library: https://github.com/DhyanB/Open-Imaging
+The gifs were animated with the help of this gif decoding library: https://github.com/DhyanB/Open-Imaging \n
 Uses the Processing graphics library to display images.
