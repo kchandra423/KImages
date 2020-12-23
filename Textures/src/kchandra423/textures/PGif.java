@@ -1,4 +1,27 @@
- package kchandra423.textures;
+/*
+MIT License
+
+Copyright (c) 2020 Kumar.s.Chandra
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+ */
+package kchandra423.textures;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,7 +37,6 @@ class PGif extends Texture{
 	private Frame[] frames;
 	private int curFrame;
 	private long lastTime;
-	private int width,height;
 	PGif(String pathname) {
 		super(0,0);
 		fader=null;
@@ -45,24 +67,8 @@ class PGif extends Texture{
 		}
 		lastTime=System.currentTimeMillis();
 	}
-	private class Frame{
-		private final PImage image;
-		private final int delay;
-		public Frame(BufferedImage image, int delay) {
-			this.image= new PImage(image);
-			this.delay=delay;
-		}
-		public PImage getImage() {
-			return image;
-		}
-		public int getDelay() {
-			return delay;
-		}
-	}
 	private Frame[] getFrames(String pathName) throws FileNotFoundException, IOException {
 		GifImage gif= GifDecoder.read(new FileInputStream(pathName));
-		width=gif.getWidth();
-		height=gif.getHeight();
 		Frame[] answer= new Frame[gif.getFrameCount()];
 		for (int i=0;i<gif.getFrameCount();i++) {
 			answer[i]= new Frame(gif.getFrame(i),gif.getDelay(i));
@@ -70,15 +76,13 @@ class PGif extends Texture{
 		return answer;
 	}
 	public void draw(PApplet p) {
-		PImage curImage=frames[curFrame].getImage();
-		curImage.resize(width, height);
 		if(fader!=null) {
 			p.pushMatrix();
 			fader.draw(p);
-			p.image(curImage, getX(), getY());
+			p.image(frames[curFrame].getImage(), getX(), getY());
 			p.popMatrix();
 		}else {
-		p.image(curImage, getX(), getY());
+		p.image(frames[curFrame].getImage(), getX(), getY());
 		}
 		advanceFrame();
 		
@@ -96,30 +100,40 @@ class PGif extends Texture{
 	}
 	@Override
 	public void resize(int w, int h) {
-		// TODO Auto-generated method stub
-		width=w;
-		height=h;
+		for(int i=0; i< frames.length;i++) {
+			frames[i].getImage().resize(w, h);
+		}
 	}
 	@Override
 	public float getWidth() {
-		// TODO Auto-generated method stub
-		return width;
+		return frames[curFrame].getImage().width;
 	}
 	@Override
 	public float getHeight() {
-		// TODO Auto-generated method stub
-		return height;
+		return frames[curFrame].getImage().height;
 	}
 	@Override
 	public void fadeOut() {
-		// TODO Auto-generated method stub
 		fader=new Fader(255,0,0.2f);
 		fader.start();
 	}
 	@Override
 	public void fadeIn() {
-		// TODO Auto-generated method stub
 		fader=new Fader(0,255,0.2f);
 		fader.start();
+	}
+	private class Frame{
+		private final PImage image;
+		private final int delay;
+		public Frame(BufferedImage image, int delay) {
+			this.image= new PImage(image);
+			this.delay=delay;
+		}
+		public PImage getImage() {
+			return image;
+		}
+		public int getDelay() {
+			return delay;
+		}
 	}
 }
