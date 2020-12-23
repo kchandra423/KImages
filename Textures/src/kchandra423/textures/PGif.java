@@ -30,8 +30,6 @@ import destiny.gif.GifDecoder;
 import destiny.gif.GifDecoder.GifImage;
 import processing.core.PApplet;
 import processing.core.PImage;
-//i should prob give credit to those gif decoder people, 
-//but i literally dont even know how the contract works
 class PGif extends Texture{
 	private Fader fader;
 	private Frame[] frames;

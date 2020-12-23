@@ -41,9 +41,7 @@ class TextureImage extends Texture{
 			e.printStackTrace();
 		}
 		image=new PImage(img);
-//		image=new PImage(new BufferedImage(pathName));
-		
-		// TODO Auto-generated constructor stub
+
 	}
 	TextureImage(String pathName,float x, float y) {
 		super(x, y);
@@ -56,12 +54,10 @@ class TextureImage extends Texture{
 		}
 		image=new PImage(img);
 		
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void draw(PApplet p) {
-		// TODO Auto-generated method stub
 		if(fader!=null) {
 			p.pushMatrix();
 			fader.draw(p);
@@ -80,24 +76,20 @@ class TextureImage extends Texture{
 
 	@Override
 	public float getWidth() {
-		// TODO Auto-generated method stub
 		return image.width;
 	}
 
 	@Override
 	public float getHeight() {
-		// TODO Auto-generated method stub
 		return image.height;
 	}
 	@Override
 	public void fadeOut() {
-		// TODO Auto-generated method stub
 		fader=new Fader(255,0,0.2f);
 		fader.start();
 	}
 	@Override
 	public void fadeIn() {
-		// TODO Auto-generated method stub
 		fader=new Fader(0,255,0.2f);
 		fader.start();
 	}
