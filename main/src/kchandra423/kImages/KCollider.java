@@ -42,7 +42,6 @@ public class KCollider implements Cloneable, KImage {
     }
 
     private static int defaultAreaDensity;
-    private final int initialWidth, initialHeight;
     private final KImage image;
     private final Area area;
     private Area mostRecentArea;
@@ -61,9 +60,9 @@ public class KCollider implements Cloneable, KImage {
 
     public KCollider(KImage t, int density) {
         this.image = t;
-        initialWidth = image.getWidth();
-        initialHeight = image.getHeight();
         area = loadArea(image, density);
+        mostRecentArea = (Area) area.clone();
+        upToDate = true;
     }
 
     /**
@@ -80,8 +79,6 @@ public class KCollider implements Cloneable, KImage {
      */
     public KCollider(KImage t, Area area) {
         image = t;
-        initialWidth = image.getWidth();
-        initialHeight = image.getHeight();
         this.area = area;
         update();
         upToDate = true;
@@ -140,6 +137,32 @@ public class KCollider implements Cloneable, KImage {
             image.resize(w, h);
             upToDate = false;
         }
+    }
+
+    @Override
+    public void scale(float stretchX, float stretchY) {
+        if (stretchX != 1 || stretchY != 1) {
+            image.scale(stretchX, stretchY);
+            upToDate = false;
+        }
+    }
+
+    @Override
+    public void setScale(float scaleX, float scaleY) {
+        if (image.getScaleX() != scaleX || image.getScaleY() != scaleY) {
+            image.setScale(scaleX, scaleY);
+            upToDate = false;
+        }
+    }
+
+    @Override
+    public float getScaleX() {
+        return image.getScaleX();
+    }
+
+    @Override
+    public float getScaleY() {
+        return image.getScaleY();
     }
 
     @Override
@@ -324,9 +347,7 @@ public class KCollider implements Cloneable, KImage {
 
     private void update() {
         upToDate = true;
-        float scaleX = (float) image.getWidth() / initialWidth;
-        float scaleY = (float) image.getHeight() / initialHeight;
-        float x = image.getX(), y = image.getY(), angle = image.getAngle();
+        float x = image.getX(), y = image.getY(), angle = image.getAngle(), scaleX = image.getScaleX(), scaleY = image.getScaleY();
         if (!image.isReflected()) {
             AffineTransform transform = new AffineTransform();
             transform.scale(scaleX, scaleY);
@@ -381,19 +402,13 @@ public class KCollider implements Cloneable, KImage {
      * @return A clone of this KCollider
      */
     @Override
-    public Object clone() {
-        try {
-            return super.clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public KImage clone() {
 //        try {
 //            Object clone = super.clone();
 //        } catch (CloneNotSupportedException e) {
 //            e.printStackTrace();
 //        }
 //
-//        return new KCollider(image, area, initialWidth, initialHeight);
+        return new KCollider(image, area);
     }
 }

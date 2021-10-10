@@ -1,13 +1,12 @@
 package kchandra423.kImages;
 
-import kchandra423.kImages.AbstractKImage;
 import processing.core.PImage;
 
 class TextureImage extends AbstractKImage {
     private final PImage image;
 
-    TextureImage(PImage image, float x, float y, float angle, boolean reflected, boolean reversed) {
-        super(x, y, angle, reflected, reversed);
+    TextureImage(PImage image, float x, float y, float angle, float scaleX, float scaleY, boolean reflected, boolean reversed) {
+        super(x, y, angle, scaleX, scaleY, reflected, reversed);
         this.image = image;
     }
 
@@ -16,9 +15,8 @@ class TextureImage extends AbstractKImage {
         return image;
     }
 
-
     @Override
-    public void resize(int w, int h) {
-        image.resize(w, h);
+    public Object clone() {
+        return new TextureImage(image.copy(), getX(), getY(), getAngle(), getScaleX(), getScaleY(), isReflected(), isReversed());
     }
 }

@@ -19,33 +19,37 @@ public class KImageBuilder {
     //[jpg, bmp, gif, png, wbmp, jpeg, tiff]
 
 
-
     public static KImage getKImage(String pathName) throws IOException {
-        return getKImage(pathName, 0, 0, 0, false, false);
+        return getKImage(pathName, 0, 0, 0, 1, 1, false, false);
     }
 
-    public static KImage getKImage(String pathName, int x, int y, float angle) throws IOException {
-        return getKImage(pathName, x, y, angle, false, false);
+    public static KImage getKImage(String pathName, float x, float y, float angle) throws IOException {
+        return getKImage(pathName, x, y, angle, 1, 1, false, false);
     }
+
+    public static KImage getKImage(String pathName, float x, float y, float angle, float scaleX, float scaleY) throws IOException {
+        return getKImage(pathName, x, y, angle, scaleX, scaleY, false, false);
+    }
+
     /**
      * Creates a KImage from the image at the given path name
      *
      * @param pathName The path to the Image
      * @return A texture at 0,0 with the image at the pathname
      */
-    public static KImage getKImage(String pathName, float x, float y, float angle, boolean reflected, boolean reversed) throws IOException {
+    public static KImage getKImage(String pathName, float x, float y, float angle, float scaleX, float scaleY, boolean reflected, boolean reversed) throws IOException {
         String extension = getExtension(pathName);
         switch (extension) {
             case "gif":
                 Frame[] frames = getFrames(pathName);
-                return new KGif(frames, x, y, angle, reflected, reversed);
+                return new KGif(frames, x, y, angle, scaleX, scaleY, reflected, reversed);
             case "jpg":
             case "jpeg":
             case "png":
             case "wbmp":
             case "bmp": {
                 BufferedImage img = ImageIO.read(new File(pathName));
-                return new TextureImage(new PImage(img), x, y, angle, reflected, reversed);
+                return new TextureImage(new PImage(img), x, y, angle, scaleX, scaleY, reflected, reversed);
             }
             case "tiff": {
                 File file = new File(pathName);
@@ -55,8 +59,9 @@ public class KImageBuilder {
                 ImageDecoder decoder = ImageCodec.createImageDecoder(names[0], stream, null);
 
                 RenderedImage im = decoder.decodeAsRenderedImage(0);
+
                 BufferedImage img = PlanarImage.wrapRenderedImage(im).getAsBufferedImage();
-                return new TextureImage(new PImage(img), x, y, angle, reflected, reversed);
+                return new TextureImage(new PImage(img), x, y, angle, scaleX, scaleY, reflected, reversed);
             }
         }
         return null;
@@ -74,7 +79,7 @@ public class KImageBuilder {
         GifDecoder.GifImage gif = GifDecoder.read(new FileInputStream(pathName));
         Frame[] answer = new Frame[gif.getFrameCount()];
         for (int i = 0; i < gif.getFrameCount(); i++) {
-            answer[i] = new Frame(gif.getFrame(i), gif.getDelay(i));
+            answer[i] = new Frame(new PImage(gif.getFrame(i)), gif.getDelay(i));
         }
         return answer;
     }

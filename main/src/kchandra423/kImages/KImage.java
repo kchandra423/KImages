@@ -10,7 +10,7 @@ import processing.core.PImage;
  * @author Kumar Chandra
  * @see PImage
  */
-public interface KImage {
+public interface KImage extends Cloneable{
 
     /**
      * Resizes the textures image to the given width and height
@@ -19,6 +19,13 @@ public interface KImage {
      * @param h new height of texture in pixels
      */
     void resize(int w, int h);
+
+    void scale(float stretchX, float stretchY);
+
+    void setScale(float scaleX, float scaleY);
+
+    float getScaleX();
+    float getScaleY();
 
     /**
      * Returns the current width of the image
@@ -64,6 +71,9 @@ public interface KImage {
     void draw(PApplet p);
 
     PImage getImage();
+
+    Object clone();
+
 
 
 

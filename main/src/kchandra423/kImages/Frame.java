@@ -2,14 +2,12 @@ package kchandra423.kImages;
 
 import processing.core.PImage;
 
-import java.awt.image.BufferedImage;
-
-class Frame {
+class Frame implements Cloneable{
     private final PImage image;
     private final int delay;
 
-    public Frame(BufferedImage image, int delay) {
-        this.image = new PImage(image);
+    public Frame(PImage image, int delay) {
+        this.image = image;
         this.delay = delay;
     }
 
@@ -19,5 +17,10 @@ class Frame {
 
     public int getDelay() {
         return delay;
+    }
+
+    @Override
+    public Frame clone() {
+            return new Frame(image.copy(), delay);
     }
 }
