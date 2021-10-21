@@ -5,56 +5,37 @@ import processing.core.PImage;
 
 abstract class AbstractKImage implements KImage {
     private float x, y;
-    private float scaleX, scaleY;
     private float angle;
     private boolean reflected, reversed;
 
-    protected AbstractKImage(float x, float y, float angle, float scaleX, float scaleY, boolean reflected, boolean reversed) {
+    protected AbstractKImage(float x, float y, float angle, boolean reflected, boolean reversed) {
         this.x = x;
         this.y = y;
         this.angle = angle;
-        this.scaleX = scaleX;
-        this.scaleY = scaleY;
         this.reflected = reflected;
         this.reversed = reversed;
     }
 
     @Override
     public void resize(int w, int h) {
-        scaleX = (float) w / getImage().width;
-        scaleY = (float) h / getImage().height;
+
     }
 
     @Override
     public void scale(float stretchX, float stretchY) {
-        this.scaleX *= stretchX;
-        this.scaleY *= stretchY;
+
     }
 
-    @Override
-    public void setScale(float scaleX, float scaleY) {
-        this.scaleX = scaleX;
-        this.scaleY = scaleY;
-    }
 
-    @Override
-    public float getScaleX() {
-        return scaleX;
-    }
-
-    @Override
-    public float getScaleY() {
-        return scaleY;
-    }
 
     @Override
     public int getWidth() {
-        return (int) (getImage().width * scaleX);
+        return getImage().width;
     }
 
     @Override
     public int getHeight() {
-        return (int) (getImage().height * scaleY);
+        return getImage().height;
     }
 
     @Override
@@ -118,30 +99,29 @@ abstract class AbstractKImage implements KImage {
 
     @Override
     public void draw(PApplet p) {
+        p.pushMatrix();
+//        float x = this.x*scaleX,y = this.y*scaleY;
         if (!reflected) {
-            p.pushMatrix();
             p.translate(x, y);
-            p.scale(scaleX, scaleY);
             p.rotate(angle);
-            p.image(getImage(), 0, 0);
-            p.popMatrix();
         } else {
-            p.pushMatrix();
+
             p.scale(-1,1);
-
-
             if (reversed) {
                 p.translate(-x, y);
-                p.scale(scaleX, scaleY);
                 p.rotate((float) (Math.PI - angle));
             } else {
-                p.translate(-(x + getWidth()), y);
-                p.scale(scaleX, scaleY);
-                p.rotate(angle);
+                p.rotate(-angle);
+
+                p.translate(-(x+getWidth()), y);
             }
-            p.image(getImage(), 0, 0);
-            p.popMatrix();
+
         }
+//        p.scale(scaleX, scaleY);
+        p.image(getImage(), 0, 0);
+        p.popMatrix();
+        p.strokeWeight(20);
+        p.point(150,150);
     }
 
     @Override

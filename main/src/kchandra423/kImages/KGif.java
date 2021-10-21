@@ -8,8 +8,8 @@ class KGif extends AbstractKImage {
     private int curFrame;
     private long lastTime;
 
-    KGif(Frame[] frames, float x, float y, float angle, float scaleX, float scaleY, boolean reflected, boolean reversed) {
-        super(x, y, angle, scaleX, scaleY, reflected, reversed);
+    KGif(Frame[] frames, float x, float y, float angle, boolean reflected, boolean reversed) {
+        super(x, y, angle, reflected, reversed);
         this.frames = frames;
         lastTime = System.currentTimeMillis();
 
@@ -35,7 +35,7 @@ class KGif extends AbstractKImage {
 
     @Override
     public Object clone() {
-        return new KGif(cloneFrames(), getX(), getY(), getAngle(), getScaleX(), getScaleY(), isReflected(), isReversed());
+        return new KGif(cloneFrames(), getX(), getY(), getAngle(), isReflected(), isReversed());
     }
 
     private Frame[] cloneFrames() {

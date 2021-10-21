@@ -9,22 +9,15 @@ import java.util.ArrayList;
 public class DrawingSurface extends PApplet {
 
     ArrayList<KImage> examples = new ArrayList<>();
-//    KImage k;
+
+    //    KImage k;
     public void setup() {
-//        try {
-//            k = KImageBuilder.getKImage("res/JPEGExample.jpeg");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        k.resize(500,500);
-////        k.scale(0.75f,1.5f);
-//        k.translate(50,50);
         File f = new File("res");
         for (File img :
                 f.listFiles()) {
             try {
                 KImage image = KImageBuilder.getKImage(img.getAbsolutePath());
-                image.resize(150, 150);
+                image.resize(250, 250);
                 examples.add(image);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -34,8 +27,11 @@ public class DrawingSurface extends PApplet {
 
     public void draw() {
 //        k.draw(this);
+        background(200);
         for (int i = 0; i < examples.size(); i++) {
-            examples.get(i).moveTo(i % 4 * 150, (i / 4) * 150);
+            float x = i % 3 * 250;
+            float y = (i / 3) * 250;
+            examples.get(i).moveTo(x, y);
             examples.get(i).draw(this);
         }
     }

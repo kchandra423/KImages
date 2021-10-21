@@ -22,11 +22,6 @@ public interface KImage extends Cloneable{
 
     void scale(float stretchX, float stretchY);
 
-    void setScale(float scaleX, float scaleY);
-
-    float getScaleX();
-    float getScaleY();
-
     /**
      * Returns the current width of the image
      *
