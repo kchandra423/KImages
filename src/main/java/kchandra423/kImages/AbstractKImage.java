@@ -23,8 +23,8 @@ SOFTWARE.
  */
 package kchandra423.kImages;
 
+import org.imgscalr.Scalr;
 import processing.core.PApplet;
-import processing.core.PImage;
 
 abstract class AbstractKImage implements KImage {
     private float x, y;
@@ -41,14 +41,38 @@ abstract class AbstractKImage implements KImage {
 
     @Override
     public void resize(int w, int h) {
-
+        resize(w, h, Scalr.Mode.AUTOMATIC, Scalr.Method.AUTOMATIC);
     }
 
     @Override
     public void scale(float stretchX, float stretchY) {
-
+        scale(stretchX, stretchY, Scalr.Mode.AUTOMATIC, Scalr.Method.AUTOMATIC);
     }
 
+    @Override
+    public void resize(int w, int h, Scalr.Mode mode) {
+        resize(w, h, mode, Scalr.Method.AUTOMATIC);
+    }
+
+    @Override
+    public void scale(float stretchX, float stretchY, Scalr.Mode mode) {
+        scale(stretchX, stretchY, mode, Scalr.Method.AUTOMATIC);
+    }
+
+    @Override
+    public void resize(int w, int h, Scalr.Method method) {
+        resize(w, h, Scalr.Mode.AUTOMATIC, method);
+    }
+
+    @Override
+    public void scale(float stretchX, float stretchY, Scalr.Method method) {
+        scale(stretchX, stretchY, Scalr.Mode.AUTOMATIC, method);
+    }
+
+    @Override
+    public void scale(float stretchX, float stretchY, Scalr.Mode mode, Scalr.Method method) {
+        resize((int) (getWidth() * stretchX), (int) (getHeight() * stretchX), mode, method);
+    }
 
     @Override
     public int getWidth() {
@@ -122,7 +146,6 @@ abstract class AbstractKImage implements KImage {
     @Override
     public void draw(PApplet p) {
         p.pushMatrix();
-//        float x = this.x*scaleX,y = this.y*scaleY;
         if (!reflected) {
             p.translate(x, y);
             p.rotate(angle);
@@ -139,18 +162,15 @@ abstract class AbstractKImage implements KImage {
             }
 
         }
-//        p.scale(scaleX, scaleY);
         p.image(getImage(), 0, 0);
         p.popMatrix();
-        p.strokeWeight(20);
-        p.point(150, 150);
     }
 
     @Override
-    public abstract PImage getImage();
+    public abstract Object clone();
 
     @Override
-    public abstract Object clone();
+    public abstract void resize(int w, int h, Scalr.Mode mode, Scalr.Method method);
 
 
 }

@@ -43,25 +43,25 @@ public class KImageBuilder {
     //[jpg, bmp, gif, png, wbmp, jpeg, tiff]
 
 
-    public static KImage getKImage(String pathName) throws IOException {
+    public static AbstractKImage getKImage(String pathName) throws IOException {
         return getKImage(pathName, 0, 0, 0, false, false);
     }
 
-    public static KImage getKImage(String pathName, float x, float y, float angle) throws IOException {
+    public static AbstractKImage getKImage(String pathName, float x, float y, float angle) throws IOException {
         return getKImage(pathName, x, y, angle, false, false);
     }
 
-//    public static KImage getKImage(String pathName, float x, float y, float angle, float scaleX, float scaleY) throws IOException {
+//    public static AbstractKImage getKImage(String pathName, float x, float y, float angle, float scaleX, float scaleY) throws IOException {
 //        return getKImage(pathName, x, y, angle, scaleX, scaleY, false, false);
 //    }
 
     /**
-     * Creates a KImage from the image at the given path name
+     * Creates a AbstractKImage from the image at the given path name
      *
      * @param pathName The path to the Image
      * @return A texture at 0,0 with the image at the pathname
      */
-    public static KImage getKImage(String pathName, float x, float y, float angle, boolean reflected, boolean reversed) throws IOException {
+    public static AbstractKImage getKImage(String pathName, float x, float y, float angle, boolean reflected, boolean reversed) throws IOException {
         String extension = getExtension(pathName);
         switch (extension) {
             case "gif":

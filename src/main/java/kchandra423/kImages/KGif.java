@@ -23,6 +23,7 @@ SOFTWARE.
  */
 package kchandra423.kImages;
 
+import org.imgscalr.Scalr;
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -35,20 +36,20 @@ class KGif extends AbstractKImage {
         super(x, y, angle, reflected, reversed);
         this.frames = frames;
         lastTime = System.currentTimeMillis();
+    }
 
+    @Override
+    public void resize(int w, int h, Scalr.Mode mode, Scalr.Method method) {
+        for (Frame f :
+                frames) {
+            f.resize(w, h, mode, method);
+        }
     }
 
     @Override
     public void draw(PApplet p) {
-
-//        PImage curImage = frames[curFrame].getImage();
-//
-//        p.image(curImage, x, y);
         super.draw(p);
-
-
         advanceFrame();
-
     }
 
     @Override
@@ -80,13 +81,4 @@ class KGif extends AbstractKImage {
             }
         }
     }
-
-//    @Override
-//    public void resize(int w, int h) {
-//        for (Frame frame : frames) {
-//            frame.getImage().resize(w, h);
-//        }
-//    }
-
-
 }

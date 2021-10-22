@@ -27,13 +27,13 @@ import java.util.HashMap;
 import java.util.Set;
 
 public class ColliderContainer {
-    private final HashMap<String, KImage> images;
+    private final HashMap<String, AbstractKImage> images;
 
-    public ColliderContainer(HashMap<String, KImage> images) {
+    public ColliderContainer(HashMap<String, AbstractKImage> images) {
         this.images = images;
     }
 
-    public KImage getKImage(String name) {
+    public AbstractKImage getKImage(String name) {
         return images.get(name);
     }
 
@@ -47,7 +47,7 @@ public class ColliderContainer {
     public void merge(ColliderContainer other) {
         images.putAll(other.images);
     }
-//    public void addKImages(HashMap<String, KImage> additions){
+//    public void addKImages(HashMap<String, AbstractKImage> additions){
 //        images.putAll(additions);
 //    }
 //    public Set<String> getNames(){

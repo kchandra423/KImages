@@ -1,5 +1,8 @@
+package examples;
+
 import kchandra423.kImages.KImage;
 import kchandra423.kImages.KImageBuilder;
+import org.imgscalr.Scalr;
 import processing.core.PApplet;
 
 import java.io.File;
@@ -10,14 +13,13 @@ public class DrawingSurface extends PApplet {
 
     ArrayList<KImage> examples = new ArrayList<>();
 
-    //    KImage k;
     public void setup() {
-        File f = new File("res");
+        File f = new File("src/test/resources");
         for (File img :
                 f.listFiles()) {
             try {
                 KImage image = KImageBuilder.getKImage(img.getAbsolutePath());
-                image.resize(250, 250);
+                image.resize(250, 250, Scalr.Method.SPEED);
                 examples.add(image);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -26,7 +28,6 @@ public class DrawingSurface extends PApplet {
     }
 
     public void draw() {
-//        k.draw(this);
         background(200);
         for (int i = 0; i < examples.size(); i++) {
             float x = i % 3 * 250;

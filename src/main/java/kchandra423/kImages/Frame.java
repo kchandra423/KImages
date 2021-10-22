@@ -23,19 +23,29 @@ SOFTWARE.
  */
 package kchandra423.kImages;
 
+import org.imgscalr.Scalr;
 import processing.core.PImage;
+
+import java.awt.image.BufferedImage;
 
 class Frame implements Cloneable {
     private final PImage image;
+    private PImage scaledCopy;
     private final int delay;
 
     public Frame(PImage image, int delay) {
         this.image = image;
+        scaledCopy = image;
         this.delay = delay;
     }
 
     public PImage getImage() {
-        return image;
+        return scaledCopy;
+    }
+
+    public void resize(int w, int h, Scalr.Mode mode, Scalr.Method method) {
+        BufferedImage resized = Scalr.resize((BufferedImage) image.getImage(), method, mode, w, h);
+        scaledCopy = new PImage(resized);
     }
 
     public int getDelay() {
