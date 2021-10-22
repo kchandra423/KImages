@@ -26,66 +26,69 @@ package kchandra423.kImages;
 import processing.core.PApplet;
 
 class Fader {
-	//the concept for this class was basically created by https://github.com/Nathaniel-github
-	private float curAlpha;
-	private float endingAlpha;
-	private float fadeSpeed;
-	private boolean fading;
-	Fader(float start, float end, float fadeSpeed) {
-		this.fadeSpeed=fadeSpeed;
-		curAlpha=start;
-		endingAlpha=end;
-		fading=false;
-		
-	}
-	
-	public void start() {
-		fading=true;
-		
-	}
-	public void stop() {
-		fading=false;
-	}
+    //the concept for this class was basically created by https://github.com/Nathaniel-github
+    private float curAlpha;
+    private float endingAlpha;
+    private float fadeSpeed;
+    private boolean fading;
 
-	public void draw(PApplet p) {
-		if(fading) {
-			p.tint(255,curAlpha);
-			advance();
-		}
-		
-	}
-	private void advance() {
-		if(!fading) {
-			return;
-		}
-		if(curAlpha==endingAlpha) {
-			stop();
-			return;
-		}
+    Fader(float start, float end, float fadeSpeed) {
+        this.fadeSpeed = fadeSpeed;
+        curAlpha = start;
+        endingAlpha = end;
+        fading = false;
 
-		if (curAlpha < endingAlpha) {
-			
-			curAlpha += fadeSpeed;
-			
-			if (curAlpha > endingAlpha) {
-				
-				curAlpha = endingAlpha;
-				
-			}
-			
-		} else if(curAlpha>endingAlpha) {
-			
-			curAlpha -= fadeSpeed;
-			
-			if (curAlpha < endingAlpha) {
-				
-				curAlpha = endingAlpha;
-				
-			}
-			
-		}
-		
-	}
-	
-	
+    }
+
+    public void start() {
+        fading = true;
+
+    }
+
+    public void stop() {
+        fading = false;
+    }
+
+    public void draw(PApplet p) {
+        if (fading) {
+            p.tint(255, curAlpha);
+            advance();
+        }
+
+    }
+
+    private void advance() {
+        if (!fading) {
+            return;
+        }
+        if (curAlpha == endingAlpha) {
+            stop();
+            return;
+        }
+
+        if (curAlpha < endingAlpha) {
+
+            curAlpha += fadeSpeed;
+
+            if (curAlpha > endingAlpha) {
+
+                curAlpha = endingAlpha;
+
+            }
+
+        } else if (curAlpha > endingAlpha) {
+
+            curAlpha -= fadeSpeed;
+
+            if (curAlpha < endingAlpha) {
+
+                curAlpha = endingAlpha;
+
+            }
+
+        }
+
+    }
+
+
 }

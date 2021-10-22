@@ -1,3 +1,26 @@
+/*
+MIT License
+
+Copyright (c) 2020 Kumar.s.Chandra
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+ */
 package kchandra423.kImages;
 
 import processing.core.PApplet;
@@ -25,7 +48,6 @@ abstract class AbstractKImage implements KImage {
     public void scale(float stretchX, float stretchY) {
 
     }
-
 
 
     @Override
@@ -106,14 +128,14 @@ abstract class AbstractKImage implements KImage {
             p.rotate(angle);
         } else {
 
-            p.scale(-1,1);
+            p.scale(-1, 1);
             if (reversed) {
                 p.translate(-x, y);
                 p.rotate((float) (Math.PI - angle));
             } else {
                 p.rotate(-angle);
 
-                p.translate(-(x+getWidth()), y);
+                p.translate(-(x + getWidth()), y);
             }
 
         }
@@ -121,7 +143,7 @@ abstract class AbstractKImage implements KImage {
         p.image(getImage(), 0, 0);
         p.popMatrix();
         p.strokeWeight(20);
-        p.point(150,150);
+        p.point(150, 150);
     }
 
     @Override
