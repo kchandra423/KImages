@@ -1,0 +1,21 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+
+# Java class files
+*.class
+
+# Ignore gradle files
+.gradle/
+build/
+
+# Mac OS X clutter
+*.DS_Store
+
+build.gradle
+gradlew
+gradlew.bat
+settings.gradle
