@@ -15,5 +15,7 @@ build/
 # Mac OS X clutter
 *.DS_Store
 
-gradlew
+build.gradle
+#gradlew
 gradlew.bat
+settings.gradle
