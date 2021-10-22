@@ -4,7 +4,7 @@
 # Ignore Gradle build output directory
 build
 
-
+.idea/
 # Java class files
 *.class
 
@@ -14,8 +14,3 @@ build/
 
 # Mac OS X clutter
 *.DS_Store
-
-build.gradle
-settings.gradle
-gradlew
-gradlew.bat
