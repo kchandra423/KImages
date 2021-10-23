@@ -1,3 +1,5 @@
+![Build Status](https://circleci.com/gh/kchandra423/KImages.svg?style=shield&circle-token=:circle-token)
+
 # Textures
 
 ## Overview
