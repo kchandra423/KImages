@@ -1,4 +1,4 @@
-![Build Status](https://circleci.com/gh/kchandra423/KImages.svg?style=shield&circle-token=:circle-token)
+[![CircleCI](https://circleci.com/gh/kchandra423/KImages/tree/main.svg?style=svg)](https://circleci.com/gh/kchandra423/KImages/tree/main)
 
 # Textures
 
