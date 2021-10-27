@@ -20,8 +20,8 @@ public class DrawingSurface extends PApplet {
             try {
                 KImage image = KImageBuilder.getKImage(img.getAbsolutePath());
                 image.resize(250, 250, Scalr.Mode.FIT_EXACT);
-                image.reflect(true);
-                image.rotate((float) (Math.PI / 4));
+//                image.reflect(true);
+//                image.rotate((float) (Math.PI / 4));
                 examples.add(image);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -34,8 +34,7 @@ public class DrawingSurface extends PApplet {
         for (int i = 0; i < examples.size(); i++) {
             float x = i % 3 * 250;
             float y = (i / 3) * 250;
-            
-            examples.get(i).rotate((float) (Math.PI/4));
+
             examples.get(i).moveTo(x, y);
             examples.get(i).draw(this);
         }

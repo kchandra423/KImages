@@ -25,16 +25,10 @@ package kchandra423.kImages;
 
 
 import at.dhyan.open_imaging.GifDecoder;
-import com.sun.media.jai.codec.FileSeekableStream;
-import com.sun.media.jai.codec.ImageCodec;
-import com.sun.media.jai.codec.ImageDecoder;
-import com.sun.media.jai.codec.SeekableStream;
 import processing.core.PImage;
 
 import javax.imageio.ImageIO;
-import javax.media.jai.PlanarImage;
 import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -71,22 +65,9 @@ public class KImageBuilder {
             case "jpeg":
             case "png":
             case "wbmp":
-            case "bmp": {
-                BufferedImage img = ImageIO.read(new File(pathName));
-                return new TextureImage(new PImage(img), x, y, angle, reflected, reversed);
-            }
+            case "bmp":
             case "tiff": {
-                // Stolen from this guy's blog
-                // https://pinnau.blogspot.com/2016/06/java-load-tiff-images-into-bufferedimage.html
-                File file = new File(pathName);
-
-                SeekableStream stream = new FileSeekableStream(file);
-                String[] names = ImageCodec.getDecoderNames(stream);
-                ImageDecoder decoder = ImageCodec.createImageDecoder(names[0], stream, null);
-
-                RenderedImage im = decoder.decodeAsRenderedImage(0);
-
-                BufferedImage img = PlanarImage.wrapRenderedImage(im).getAsBufferedImage();
+                BufferedImage img = ImageIO.read(new File(pathName));
                 return new TextureImage(new PImage(img), x, y, angle, reflected, reversed);
             }
             default:
