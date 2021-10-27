@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tests.MultipleResizesTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-27T15:37:52" hostname="Kumars-MacBook-Air.local" time="1.666">
+<testsuite name="tests.MultipleResizesTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-27T15:54:57" hostname="Kumars-MacBook-Air.local" time="0.528">
   <properties/>
-  <testcase name="checkImageSimilarity()" classname="tests.MultipleResizesTest" time="1.666"/>
+  <testcase name="checkImageSimilarity()" classname="tests.MultipleResizesTest" time="0.528"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
