@@ -151,14 +151,17 @@ abstract class AbstractKImage implements KImage {
             p.rotate(angle);
         } else {
 
-            p.scale(-1, 1);
             if (reversed) {
                 p.translate(-x, y);
                 p.rotate((float) (Math.PI - angle));
             } else {
-                p.rotate(-angle);
+                p.scale(-1, 1);
+                p.translate(-x, y);
 
-                p.translate(-(x + getWidth()), y);
+
+                p.rotate(-angle);
+                p.translate(-getWidth(),0);
+
             }
 
         }
