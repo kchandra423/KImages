@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TranslationTest {
     @Test
-    public void checkImageSimilarity() throws IOException {
+    public void checkImageLocation() throws IOException {
         KImage image = KImageBuilder.getKImage("src/test/resources/JPEGExample.jpeg");
         assertEquals(image.getX(), 0);
         assertEquals(image.getY(), 0);
