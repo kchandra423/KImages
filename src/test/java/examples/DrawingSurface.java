@@ -34,7 +34,8 @@ public class DrawingSurface extends PApplet {
         for (int i = 0; i < examples.size(); i++) {
             float x = i % 3 * 250;
             float y = (i / 3) * 250;
-
+            
+            examples.get(i).rotate((float) (Math.PI/4));
             examples.get(i).moveTo(x, y);
             examples.get(i).draw(this);
         }
