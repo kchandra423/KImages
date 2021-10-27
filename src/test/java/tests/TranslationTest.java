@@ -16,6 +16,6 @@ public class TranslationTest {
         assertEquals(image.getY(), 0);
         image.moveTo(50, 100);
         assertEquals(image.getX(), 50);
-        assertEquals(image.getY(), 10);
+        assertEquals(image.getY(), 100);
     }
 }
