@@ -23,6 +23,7 @@ SOFTWARE.
  */
 package kchandra423.kImages;
 
+import org.imgscalr.Scalr;
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -59,12 +60,9 @@ import java.awt.geom.Area;
  * @see KImage
  * @see Area
  */
-public class KCollider implements Cloneable, KImage {
-    static {
-        defaultAreaDensity = 2;
-    }
+public class KCollider implements KImage {
 
-    private static int defaultAreaDensity;
+    private static int defaultAreaDensity = 2;
     private final KImage image;
     private final Area area;
     private Area mostRecentArea;
@@ -156,14 +154,44 @@ public class KCollider implements Cloneable, KImage {
 
     @Override
     public void resize(int w, int h) {
+        resize(w, h, Scalr.Mode.AUTOMATIC, Scalr.Method.AUTOMATIC);
+    }
+
+    @Override
+    public void scale(float stretchX, float stretchY) {
+        scale(stretchX, stretchY, Scalr.Mode.AUTOMATIC, Scalr.Method.AUTOMATIC);
+    }
+
+    @Override
+    public void resize(int w, int h, Scalr.Mode mode) {
+        resize(w, h, mode, Scalr.Method.AUTOMATIC);
+    }
+
+    @Override
+    public void scale(float stretchX, float stretchY, Scalr.Mode mode) {
+        scale(stretchX, stretchY, mode, Scalr.Method.AUTOMATIC);
+    }
+
+    @Override
+    public void resize(int w, int h, Scalr.Method method) {
+        resize(w, h, Scalr.Mode.AUTOMATIC, method);
+    }
+
+    @Override
+    public void scale(float stretchX, float stretchY, Scalr.Method method) {
+        scale(stretchX, stretchY, Scalr.Mode.AUTOMATIC, method);
+    }
+
+    @Override
+    public void resize(int w, int h, Scalr.Mode mode, Scalr.Method method) {
         if (w != image.getWidth() || h != image.getHeight()) {
-            image.resize(w, h);
+            image.resize(w, h, mode, method);
             upToDate = false;
         }
     }
 
     @Override
-    public void scale(float stretchX, float stretchY) {
+    public void scale(float stretchX, float stretchY, Scalr.Mode mode, Scalr.Method method) {
         if (stretchX != 1 || stretchY != 1) {
             image.scale(stretchX, stretchY);
             upToDate = false;

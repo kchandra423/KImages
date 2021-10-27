@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/kchandra423/KImages/tree/main.svg?style=svg)](https://circleci.com/gh/kchandra423/KImages/tree/main)
+![Tests](https://github.com/kchandra423/KImages/actions/workflows/Tests.yml/badge.svg)
 
 # Textures
 

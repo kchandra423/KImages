@@ -23,6 +23,7 @@ SOFTWARE.
  */
 package kchandra423.kImages;
 
+import org.imgscalr.Scalr;
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -44,6 +45,19 @@ public interface KImage extends Cloneable {
     void resize(int w, int h);
 
     void scale(float stretchX, float stretchY);
+
+    void resize(int w, int h, Scalr.Mode mode);
+
+    void scale(float stretchX, float stretchY, Scalr.Mode mode);
+
+    void resize(int w, int h, Scalr.Method method);
+
+    void scale(float stretchX, float stretchY, Scalr.Method method);
+
+    void resize(int w, int h, Scalr.Mode mode, Scalr.Method method);
+
+    void scale(float stretchX, float stretchY, Scalr.Mode mode, Scalr.Method method);
+
 
     /**
      * Returns the current width of the image

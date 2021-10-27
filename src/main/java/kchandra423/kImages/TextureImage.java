@@ -23,19 +23,30 @@ SOFTWARE.
  */
 package kchandra423.kImages;
 
+import org.imgscalr.Scalr;
 import processing.core.PImage;
+
+import java.awt.image.BufferedImage;
 
 class TextureImage extends AbstractKImage {
     private final PImage image;
+    private PImage scaledCopy;
 
     TextureImage(PImage image, float x, float y, float angle, boolean reflected, boolean reversed) {
         super(x, y, angle, reflected, reversed);
         this.image = image;
+        this.scaledCopy = image;
+    }
+
+    @Override
+    public void resize(int w, int h, Scalr.Mode mode, Scalr.Method method) {
+        BufferedImage resized = Scalr.resize((BufferedImage) image.getImage(), method, mode, w, h);
+        scaledCopy = new PImage(resized);
     }
 
     @Override
     public PImage getImage() {
-        return image;
+        return scaledCopy;
     }
 
     @Override
