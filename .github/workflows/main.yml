@@ -7,8 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2     # checkout the repo
-      - run: npm install ci                   # install packages
+      - run: npm install ci           # install packages
+#      - name: Make gradlew executable
+      - run: chmod +x ./gradlew
       - run: ./gradlew build
+
 
       - name: Test Report
         uses: dorny/test-reporter@v1
