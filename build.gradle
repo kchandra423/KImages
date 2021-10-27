@@ -48,5 +48,4 @@ dependencies {
 
 test {
     useJUnitPlatform()
-    reports.junitXml.getOutputLocation().set('reports' as File)
 }
