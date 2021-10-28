@@ -31,7 +31,10 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class KImageBuilder {
     //[jpg, bmp, gif, png, wbmp, jpeg, tiff]
@@ -57,21 +60,29 @@ public class KImageBuilder {
      */
     public static AbstractKImage getKImage(String pathName, float x, float y, float angle, boolean reflected, boolean reversed) throws IOException {
         String extension = getExtension(pathName);
-        switch (extension) {
-            case "gif":
-                Frame[] frames = getFrames(pathName);
-                return new KGif(frames, x, y, angle, reflected, reversed);
-            case "jpg":
-            case "jpeg":
-            case "png":
-            case "wbmp":
-            case "bmp":
-            case "tiff": {
-                BufferedImage img = ImageIO.read(new File(pathName));
-                return new TextureImage(new PImage(img), x, y, angle, reflected, reversed);
-            }
-            default:
-                throw new IOException("File type \"" + extension + "\" not supported");
+        //wbmp
+        //bmp
+        //pcx
+        //pnm
+        //tiff
+        //gif
+        //jpg
+        //jpeg
+        //png
+        //nef
+        //dng
+        if(!Files.exists(Paths.get(pathName))){
+            throw new FileNotFoundException("File path does not exist!");
+        }
+        if ("gif".equals(extension)) {
+            Frame[] frames = getFrames(pathName);
+            return new KGif(frames, x, y, angle, reflected, reversed);
+        }
+        try {
+            BufferedImage img = ImageIO.read(new File(pathName));
+            return new TextureImage(new PImage(img), x, y, angle, reflected, reversed);
+        } catch (NullPointerException e) {
+            throw new IOException("File type \"" + extension + "\" not supported");
         }
     }
 

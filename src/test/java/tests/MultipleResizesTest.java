@@ -13,12 +13,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class MultipleResizesTest {
     @Test
     public void checkImageSimilarity() throws IOException {
-        KImage image = KImageBuilder.getKImage("src/test/resources/JPEGExample.jpeg");
+        KImage image = KImageBuilder.getKImage("src/test/resources/valid/JPEGExample.jpeg");
         image.resize(250, 250, Scalr.Method.ULTRA_QUALITY);
 
         BufferedImage buffered = (BufferedImage) image.getImage().getImage();
-
         for (int i = 0; i < 10; i++) {
+            //would completely destroy image quality if permanently modified
             image.scale(1.01f, 1.01f, Scalr.Method.SPEED);
         }
         image.resize(250, 250, Scalr.Method.ULTRA_QUALITY);

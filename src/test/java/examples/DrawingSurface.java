@@ -3,6 +3,7 @@ package examples;
 import kchandra423.kImages.KImage;
 import kchandra423.kImages.KImageBuilder;
 import org.imgscalr.Scalr;
+import org.junit.jupiter.api.Test;
 import processing.core.PApplet;
 
 import java.io.File;
@@ -12,17 +13,19 @@ import java.util.ArrayList;
 public class DrawingSurface extends PApplet {
 
     ArrayList<KImage> examples = new ArrayList<>();
-
+    //just check that this doesn't result in an error
+    @Test
     public void setup() {
-        File f = new File("src/test/resources");
+        File f = new File("src/test/resources/valid");
         for (File img :
                 f.listFiles()) {
             try {
-                KImage image = KImageBuilder.getKImage(img.getAbsolutePath());
-                image.resize(250, 250, Scalr.Mode.FIT_EXACT);
-//                image.reflect(true);
-//                image.rotate((float) (Math.PI / 4));
-                examples.add(image);
+                //can't escape the random ds stores
+                if(!img.toString().toLowerCase().contains("ds_store")) {
+                    KImage image = KImageBuilder.getKImage(img.getAbsolutePath());
+                    image.resize(250, 250, Scalr.Mode.FIT_EXACT);
+                    examples.add(image);
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
