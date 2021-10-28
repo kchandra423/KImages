@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class UnsupportedFilesTest {
     @Test
     public void unsupported() {
+        //istg this better not be an os thing
         assertThrows(IOException.class, () -> {
             KImageBuilder.getKImage("src/test/resources/invalid/UnsupportedExample.arw");
         });
