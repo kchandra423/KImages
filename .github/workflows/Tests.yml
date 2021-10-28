@@ -12,7 +12,7 @@ jobs:
 #      - name: Make gradlew executable
       - run: chmod +x ./gradlew
       - run: ./gradlew build
-      - run: cd build/test-results/tests
+      - run: cd build/test-results/test
 
 
       - name: Test Report
