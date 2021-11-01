@@ -14,18 +14,14 @@ jar {
     destinationDirectory = 'dist' as File
 }
 
-
 javadoc {
     destinationDir = 'docs' as File
     failOnError = false
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/org.imgscalr/imgscalr-lib
-    implementation group: 'org.imgscalr', name: 'imgscalr-lib', version: '4.2'
-
-    // https://mvnrepository.com/artifact/org.processing/core
-    implementation group: 'org.processing', name: 'core', version: '3.3.7'
+    // https://mvnrepository.com/artifact/org.jetbrains/annotations
+    implementation group: 'org.jetbrains', name: 'annotations', version: '22.0.0'
 
     // https://mvnrepository.com/artifact/com.github.jai-imageio/jai-imageio-core
     implementation group: 'com.github.jai-imageio', name: 'jai-imageio-core', version: '1.4.0'
@@ -35,10 +31,17 @@ dependencies {
     //https://github.com/DhyanB/Open-Imaging
     implementation files('libs/open-imaging.jar')
 
+    // https://mvnrepository.com/artifact/org.imgscalr/imgscalr-lib
+    implementation group: 'org.imgscalr', name: 'imgscalr-lib', version: '4.2'
+
+    // https://mvnrepository.com/artifact/org.processing/core
+    implementation group: 'org.processing', name: 'core', version: '3.3.7'
+
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
 test {
     useJUnitPlatform()
+    ignoreFailures = true
 }

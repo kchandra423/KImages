@@ -17,8 +17,8 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6,"i17":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+var methods = {"i0":6,"i1":10,"i2":10,"i3":6,"i4":10,"i5":18,"i6":6,"i7":18,"i8":18};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"],16:["t5","Default Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -36,7 +36,8 @@ var activeTableTab = "activeTableTab";
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
-<li><a href="../../kchandra423/kImages/package-summary.html">Package</a></li>
+<li><a href="../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
 <li class="navBarCell1Rev">Class</li>
 <li><a href="package-tree.html">Tree</a></li>
 <li><a href="../../deprecated-list.html">Deprecated</a></li>
@@ -46,7 +47,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../kchandra423/kImages/KCollider.html" title="class in kchandra423.kImages"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li>Prev&nbsp;Class</li>
 <li><a href="../../kchandra423/kImages/KImageBuilder.html" title="class in kchandra423.kImages"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -73,13 +74,13 @@ var activeTableTab = "activeTableTab";
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
@@ -90,36 +91,47 @@ var activeTableTab = "activeTableTab";
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">kchandra423.kImages</div>
-<h2 title="Interface KImage" class="title">Interface KImage</h2>
+<h2 title="Class KImage" class="title">Class KImage</h2>
 </div>
 <div class="contentContainer">
+<ul class="inheritance">
+<li>java.lang.Object</li>
+<li>
+<ul class="inheritance">
+<li>kchandra423.kImages.KImage</li>
+</ul>
+</li>
+</ul>
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
-<dl>
-<dt>All Superinterfaces:</dt>
-<dd>java.lang.Cloneable</dd>
-</dl>
-<dl>
-<dt>All Known Implementing Classes:</dt>
-<dd><a href="../../kchandra423/kImages/KCollider.html" title="class in kchandra423.kImages">KCollider</a></dd>
-</dl>
 <hr>
 <br>
-<pre>public interface <span class="typeNameLabel">KImage</span>
-extends java.lang.Cloneable</pre>
-<div class="block">Represents an image that can be moved around and resized. Supports Gif, jpeg, and png images.
- Gifs will be properly animated. Uses processing to draw.</div>
-<dl>
-<dt><span class="seeLabel">See Also:</span></dt>
-<dd><code>PImage</code></dd>
-</dl>
+<pre>public abstract class <span class="typeNameLabel">KImage</span>
+extends java.lang.Object</pre>
 </li>
 </ul>
 </div>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor.summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colOne" scope="col">Constructor and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#KImage--">KImage</a></span>()</code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -127,96 +139,65 @@ extends java.lang.Cloneable</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t5" class="tableTab"><span><a href="javascript:show(16);">Default Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>java.lang.Object</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#clone--">clone</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>abstract <a href="../../kchandra423/kImages/KImage.html" title="class in kchandra423.kImages">KImage</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#copy--">copy</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#draw-processing.core.PApplet-">draw</a></span>(processing.core.PApplet&nbsp;p)</code>
-<div class="block">Draws the texture onto the given PApplet</div>
-</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#draw-processing.core.PApplet-float-float-">draw</a></span>(processing.core.PApplet&nbsp;p,
+    float&nbsp;x,
+    float&nbsp;y)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>float</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#getAngle--">getAngle</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>int</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#getHeight--">getHeight</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#getHeight--">getHeight</a></span>()</code>
-<div class="block">Returns the current height of the image</div>
-</td>
-</tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>processing.core.PImage</code></td>
+<td class="colFirst"><code>abstract processing.core.PImage</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#getImage--">getImage</a></span>()</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#getWidth--">getWidth</a></span>()</code>
-<div class="block">Returns the current width of the image</div>
-</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#getWidth--">getWidth</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>default void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#resize-int-int-">resize</a></span>(int&nbsp;w,
+      int&nbsp;h)</code>&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
-<td class="colFirst"><code>float</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#getX--">getX</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#resize-int-int-org.imgscalr.Scalr.Method-org.imgscalr.Scalr.Mode-">resize</a></span>(int&nbsp;w,
+      int&nbsp;h,
+      org.imgscalr.Scalr.Method&nbsp;method,
+      org.imgscalr.Scalr.Mode&nbsp;mode)</code>&nbsp;</td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>float</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#getY--">getY</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#isReflected--">isReflected</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#isReversed--">isReversed</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i10" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#moveTo-float-float-">moveTo</a></span>(float&nbsp;x,
-      float&nbsp;y)</code>&nbsp;</td>
-</tr>
-<tr id="i11" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#reflect-boolean-">reflect</a></span>(boolean&nbsp;flag)</code>&nbsp;</td>
-</tr>
-<tr id="i12" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#resize-int-int-">resize</a></span>(int&nbsp;w,
-      int&nbsp;h)</code>
-<div class="block">Resizes the textures image to the given width and height</div>
-</td>
-</tr>
-<tr id="i13" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#reverse-boolean-">reverse</a></span>(boolean&nbsp;flag)</code>&nbsp;</td>
-</tr>
-<tr id="i14" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#rotate-float-">rotate</a></span>(float&nbsp;theta)</code>&nbsp;</td>
-</tr>
-<tr id="i15" class="rowColor">
-<td class="colFirst"><code>void</code></td>
+<td class="colFirst"><code>default void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#scale-float-float-">scale</a></span>(float&nbsp;stretchX,
      float&nbsp;stretchY)</code>&nbsp;</td>
 </tr>
-<tr id="i16" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#setAngle-float-">setAngle</a></span>(float&nbsp;theta)</code>&nbsp;</td>
-</tr>
-<tr id="i17" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#translate-float-float-">translate</a></span>(float&nbsp;delx,
-         float&nbsp;dely)</code>&nbsp;</td>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>default void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImage.html#scale-float-float-org.imgscalr.Scalr.Method-org.imgscalr.Scalr.Mode-">scale</a></span>(float&nbsp;stretchX,
+     float&nbsp;stretchY,
+     org.imgscalr.Scalr.Method&nbsp;method,
+     org.imgscalr.Scalr.Mode&nbsp;mode)</code>&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+</ul>
 </li>
 </ul>
 </li>
@@ -225,50 +206,36 @@ extends java.lang.Cloneable</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="constructor.detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a name="KImage--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>KImage</h4>
+<pre>public&nbsp;KImage()</pre>
+</li>
+</ul>
+</li>
+</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.detail">
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="resize-int-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>resize</h4>
-<pre>void&nbsp;resize(int&nbsp;w,
-            int&nbsp;h)</pre>
-<div class="block">Resizes the textures image to the given width and height</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>w</code> - new width of texture in pixels</dd>
-<dd><code>h</code> - new height of texture in pixels</dd>
-</dl>
-</li>
-</ul>
-<a name="scale-float-float-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>scale</h4>
-<pre>void&nbsp;scale(float&nbsp;stretchX,
-           float&nbsp;stretchY)</pre>
-</li>
-</ul>
 <a name="getWidth--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getWidth</h4>
-<pre>int&nbsp;getWidth()</pre>
-<div class="block">Returns the current width of the image</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>Current width of the image</dd>
-</dl>
+<pre>public&nbsp;int&nbsp;getWidth()</pre>
 </li>
 </ul>
 <a name="getHeight--">
@@ -277,127 +244,18 @@ extends java.lang.Cloneable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getHeight</h4>
-<pre>int&nbsp;getHeight()</pre>
-<div class="block">Returns the current height of the image</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>Current height of the image</dd>
-</dl>
+<pre>public&nbsp;int&nbsp;getHeight()</pre>
 </li>
 </ul>
-<a name="translate-float-float-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>translate</h4>
-<pre>void&nbsp;translate(float&nbsp;delx,
-               float&nbsp;dely)</pre>
-</li>
-</ul>
-<a name="getX--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getX</h4>
-<pre>float&nbsp;getX()</pre>
-</li>
-</ul>
-<a name="getY--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getY</h4>
-<pre>float&nbsp;getY()</pre>
-</li>
-</ul>
-<a name="moveTo-float-float-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>moveTo</h4>
-<pre>void&nbsp;moveTo(float&nbsp;x,
-            float&nbsp;y)</pre>
-</li>
-</ul>
-<a name="setAngle-float-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>setAngle</h4>
-<pre>void&nbsp;setAngle(float&nbsp;theta)</pre>
-</li>
-</ul>
-<a name="getAngle--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getAngle</h4>
-<pre>float&nbsp;getAngle()</pre>
-</li>
-</ul>
-<a name="isReflected--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isReflected</h4>
-<pre>boolean&nbsp;isReflected()</pre>
-</li>
-</ul>
-<a name="isReversed--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isReversed</h4>
-<pre>boolean&nbsp;isReversed()</pre>
-</li>
-</ul>
-<a name="rotate-float-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>rotate</h4>
-<pre>void&nbsp;rotate(float&nbsp;theta)</pre>
-</li>
-</ul>
-<a name="reflect-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>reflect</h4>
-<pre>void&nbsp;reflect(boolean&nbsp;flag)</pre>
-</li>
-</ul>
-<a name="reverse-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>reverse</h4>
-<pre>void&nbsp;reverse(boolean&nbsp;flag)</pre>
-</li>
-</ul>
-<a name="draw-processing.core.PApplet-">
+<a name="draw-processing.core.PApplet-float-float-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>draw</h4>
-<pre>void&nbsp;draw(processing.core.PApplet&nbsp;p)</pre>
-<div class="block">Draws the texture onto the given PApplet</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>p</code> - The given PApplet to be drawn to</dd>
-</dl>
+<pre>public&nbsp;void&nbsp;draw(processing.core.PApplet&nbsp;p,
+                 float&nbsp;x,
+                 float&nbsp;y)</pre>
 </li>
 </ul>
 <a name="getImage--">
@@ -406,16 +264,64 @@ extends java.lang.Cloneable</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getImage</h4>
-<pre>processing.core.PImage&nbsp;getImage()</pre>
+<pre>public abstract&nbsp;processing.core.PImage&nbsp;getImage()</pre>
 </li>
 </ul>
-<a name="clone--">
+<a name="copy--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>copy</h4>
+<pre>public abstract&nbsp;<a href="../../kchandra423/kImages/KImage.html" title="class in kchandra423.kImages">KImage</a>&nbsp;copy()</pre>
+</li>
+</ul>
+<a name="scale-float-float-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>scale</h4>
+<pre>public&nbsp;void&nbsp;scale(float&nbsp;stretchX,
+                  float&nbsp;stretchY)</pre>
+</li>
+</ul>
+<a name="resize-int-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>resize</h4>
+<pre>public&nbsp;void&nbsp;resize(int&nbsp;w,
+                   int&nbsp;h)</pre>
+</li>
+</ul>
+<a name="scale-float-float-org.imgscalr.Scalr.Method-org.imgscalr.Scalr.Mode-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>scale</h4>
+<pre>public&nbsp;void&nbsp;scale(float&nbsp;stretchX,
+                  float&nbsp;stretchY,
+                  @Nullable
+                  org.imgscalr.Scalr.Method&nbsp;method,
+                  @Nullable
+                  org.imgscalr.Scalr.Mode&nbsp;mode)</pre>
+</li>
+</ul>
+<a name="resize-int-int-org.imgscalr.Scalr.Method-org.imgscalr.Scalr.Mode-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>clone</h4>
-<pre>java.lang.Object&nbsp;clone()</pre>
+<h4>resize</h4>
+<pre>public&nbsp;void&nbsp;resize(int&nbsp;w,
+                   int&nbsp;h,
+                   @Nullable
+                   org.imgscalr.Scalr.Method&nbsp;method,
+                   @Nullable
+                   org.imgscalr.Scalr.Mode&nbsp;mode)</pre>
 </li>
 </ul>
 </li>
@@ -434,7 +340,8 @@ extends java.lang.Cloneable</pre>
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
-<li><a href="../../kchandra423/kImages/package-summary.html">Package</a></li>
+<li><a href="../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
 <li class="navBarCell1Rev">Class</li>
 <li><a href="package-tree.html">Tree</a></li>
 <li><a href="../../deprecated-list.html">Deprecated</a></li>
@@ -444,7 +351,7 @@ extends java.lang.Cloneable</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../kchandra423/kImages/KCollider.html" title="class in kchandra423.kImages"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li>Prev&nbsp;Class</li>
 <li><a href="../../kchandra423/kImages/KImageBuilder.html" title="class in kchandra423.kImages"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -471,13 +378,13 @@ extends java.lang.Cloneable</pre>
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
