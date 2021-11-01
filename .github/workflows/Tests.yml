@@ -4,8 +4,8 @@ on:
   push:
 jobs:
   build-test:
-    name: Build & Test
-    runs-on: ubuntu-latest
+    name: Build
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2     # checkout the repo
       - run: npm install ci           # install packages

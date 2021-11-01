@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9};
+var methods = {"i0":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -36,7 +36,8 @@ var activeTableTab = "activeTableTab";
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
-<li><a href="../../kchandra423/kImages/package-summary.html">Package</a></li>
+<li><a href="../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
 <li class="navBarCell1Rev">Class</li>
 <li><a href="package-tree.html">Tree</a></li>
 <li><a href="../../deprecated-list.html">Deprecated</a></li>
@@ -46,8 +47,8 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../kchandra423/kImages/KImage.html" title="interface in kchandra423.kImages"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../kchandra423/kImages/KImage.html" title="class in kchandra423.kImages"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../kchandra423/kImages/MovableKImage.html" title="class in kchandra423.kImages"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?kchandra423/kImages/KImageBuilder.html" target="_top">Frames</a></li>
@@ -144,26 +145,8 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static <a href="../../kchandra423/kImages/KImage.html" title="interface in kchandra423.kImages">KImage</a></code></td>
+<td class="colFirst"><code>static <a href="../../kchandra423/kImages/KImage.html" title="class in kchandra423.kImages">KImage</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImageBuilder.html#getKImage-java.lang.String-">getKImage</a></span>(java.lang.String&nbsp;pathName)</code>&nbsp;</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>static <a href="../../kchandra423/kImages/KImage.html" title="interface in kchandra423.kImages">KImage</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImageBuilder.html#getKImage-java.lang.String-float-float-float-">getKImage</a></span>(java.lang.String&nbsp;pathName,
-         float&nbsp;x,
-         float&nbsp;y,
-         float&nbsp;angle)</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>static <a href="../../kchandra423/kImages/KImage.html" title="interface in kchandra423.kImages">KImage</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../kchandra423/kImages/KImageBuilder.html#getKImage-java.lang.String-float-float-float-boolean-boolean-">getKImage</a></span>(java.lang.String&nbsp;pathName,
-         float&nbsp;x,
-         float&nbsp;y,
-         float&nbsp;angle,
-         boolean&nbsp;reflected,
-         boolean&nbsp;reversed)</code>
-<div class="block">Creates a KImage from the image at the given path name</div>
-</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -207,53 +190,12 @@ extends java.lang.Object</pre>
 <a name="getKImage-java.lang.String-">
 <!--   -->
 </a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getKImage</h4>
-<pre>public static&nbsp;<a href="../../kchandra423/kImages/KImage.html" title="interface in kchandra423.kImages">KImage</a>&nbsp;getKImage(java.lang.String&nbsp;pathName)
-                        throws java.io.IOException</pre>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
-</dl>
-</li>
-</ul>
-<a name="getKImage-java.lang.String-float-float-float-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getKImage</h4>
-<pre>public static&nbsp;<a href="../../kchandra423/kImages/KImage.html" title="interface in kchandra423.kImages">KImage</a>&nbsp;getKImage(java.lang.String&nbsp;pathName,
-                               float&nbsp;x,
-                               float&nbsp;y,
-                               float&nbsp;angle)
-                        throws java.io.IOException</pre>
-<dl>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
-</dl>
-</li>
-</ul>
-<a name="getKImage-java.lang.String-float-float-float-boolean-boolean-">
-<!--   -->
-</a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getKImage</h4>
-<pre>public static&nbsp;<a href="../../kchandra423/kImages/KImage.html" title="interface in kchandra423.kImages">KImage</a>&nbsp;getKImage(java.lang.String&nbsp;pathName,
-                               float&nbsp;x,
-                               float&nbsp;y,
-                               float&nbsp;angle,
-                               boolean&nbsp;reflected,
-                               boolean&nbsp;reversed)
+<pre>public static&nbsp;<a href="../../kchandra423/kImages/KImage.html" title="class in kchandra423.kImages">KImage</a>&nbsp;getKImage(java.lang.String&nbsp;pathName)
                         throws java.io.IOException</pre>
-<div class="block">Creates a KImage from the image at the given path name</div>
 <dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>pathName</code> - The path to the Image</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>A texture at 0,0 with the image at the pathname</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.io.IOException</code></dd>
 </dl>
@@ -275,7 +217,8 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
-<li><a href="../../kchandra423/kImages/package-summary.html">Package</a></li>
+<li><a href="../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
 <li class="navBarCell1Rev">Class</li>
 <li><a href="package-tree.html">Tree</a></li>
 <li><a href="../../deprecated-list.html">Deprecated</a></li>
@@ -285,8 +228,8 @@ extends java.lang.Object</pre>
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../kchandra423/kImages/KImage.html" title="interface in kchandra423.kImages"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li>Next&nbsp;Class</li>
+<li><a href="../../kchandra423/kImages/KImage.html" title="class in kchandra423.kImages"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../kchandra423/kImages/MovableKImage.html" title="class in kchandra423.kImages"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../index.html?kchandra423/kImages/KImageBuilder.html" target="_top">Frames</a></li>
