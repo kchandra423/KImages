@@ -34,12 +34,12 @@ import processing.core.PImage;
  * @version 1.0
  * @see PApplet
  */
-public abstract class KImage implements Scalable {
-    public int getWidth() {
+public interface KImage extends Scalable {
+    default int getWidth() {
         return getImage().width;
     }
 
-    public int getHeight() {
+    default int getHeight() {
         return getImage().height;
     }
 
@@ -50,7 +50,7 @@ public abstract class KImage implements Scalable {
      * @param x The x location to draw at
      * @param y The y location to draw at
      */
-    public void draw(PApplet p, float x, float y) {
+    default void draw(PApplet p, float x, float y) {
         p.image(getImage(), x, y);
     }
 
@@ -59,13 +59,13 @@ public abstract class KImage implements Scalable {
      *
      * @return The base image
      */
-    public abstract PImage getImage();
+    PImage getImage();
 
     /**
      * Returns a copy of this image
      *
      * @return A copy of this KImage
      */
-    public abstract KImage copy();
+    KImage copy();
 
 }

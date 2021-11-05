@@ -18,25 +18,9 @@ public class DrawingSurface extends PApplet {
     ArrayList<MovableKImage> examples = new ArrayList<>();
 
     //just check that this doesn't result in an error
-    @Test
+
     public void setup() {
-        File f = new File("src/test/resources");
-        for (File img :
-                f.listFiles()) {
-            try {
-                //can't escape the random ds stores
-                if (!img.toString().toLowerCase().contains("ds_store")) {
-                    KImage image = KImageBuilder.getKImage(img.getAbsolutePath());
-                    image.resize(250, 250, null, Scalr.Mode.FIT_EXACT);
-                    if (img.toString().contains("gif")) {
-                        int x = 0;
-                    }
-                    examples.add(new MovableKImage(image,0,0,0,false, MovableKImage.ImageMode.CENTER));
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+
     }
 
     public void draw() {

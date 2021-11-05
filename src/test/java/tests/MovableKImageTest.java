@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class MovableKImageTest {
     private final MovableKImage img = new MovableKImage(KImageBuilder.getKImage("src/test/resources/BMPExample.bmp"));
@@ -16,20 +16,40 @@ class MovableKImageTest {
     }
 
     @Test
-    void getWidth() throws IOException {
-        assertEquals(640, img.getWidth());
+    void translate() {
+        assertEquals(0, img.getX());
+        assertEquals(0, img.getY());
+        img.translate(50, 40);
+        assertEquals(50, img.getX());
+        assertEquals(40, img.getY());
     }
 
     @Test
-    void getHeight() {
-        assertEquals(480, img.getHeight());
+    void moveTo() {
+        img.moveTo(30, 50);
+
+        assertEquals(30, img.getX());
+        assertEquals(50, img.getY());
     }
 
     @Test
-    void resize() {
-        img.resize(340, 350, null, Scalr.Mode.FIT_EXACT);
-        assertEquals(340, img.getWidth());
-        assertEquals(350, img.getHeight());
+    void rotate() {
+        assertEquals(0, img.getAngle());
+        img.rotate(5);
+        assertEquals(5, img.getAngle());
+    }
+
+    @Test
+    void setAngle() {
+        img.setAngle(10);
+        assertEquals(10, img.getAngle());
+    }
+
+    @Test
+    void setReflected() {
+        assertFalse(img.isReflected());
+        img.setReflected(true);
+        assertTrue(img.isReflected());
     }
 
     @Test
@@ -41,10 +61,10 @@ class MovableKImageTest {
     void copy() throws IOException {
         MovableKImage mk = new MovableKImage(KImageBuilder.getKImage("src/test/resources/GIFExample.gif"));
         MovableKImage copy = mk.copy();
-        copy.resize(40, 80, null, Scalr.Mode.FIT_EXACT);
+        copy.resize(40, 80, Scalr.Method.SPEED, Scalr.Mode.FIT_EXACT);
         copy.translate(40, 60);
         mk.rotate((float) Math.PI);
-        mk.resize(50, 30, null, Scalr.Mode.FIT_EXACT);
+        mk.resize(50, 30, Scalr.Method.SPEED, Scalr.Mode.FIT_EXACT);
 
 
         assertEquals(50, mk.getWidth());
@@ -67,10 +87,10 @@ class MovableKImageTest {
 
         mk = new MovableKImage(KImageBuilder.getKImage("src/test/resources/PNGExample.png"));
         copy = mk.copy();
-        copy.resize(40, 80, null, Scalr.Mode.FIT_EXACT);
+        copy.resize(40, 80, Scalr.Method.SPEED, Scalr.Mode.FIT_EXACT);
         copy.translate(40, 60);
         mk.rotate((float) Math.PI);
-        mk.resize(50, 30, null, Scalr.Mode.FIT_EXACT);
+        mk.resize(50, 30, Scalr.Method.SPEED, Scalr.Mode.FIT_EXACT);
 
 
         assertEquals(50, mk.getWidth());

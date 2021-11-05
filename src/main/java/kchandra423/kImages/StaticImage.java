@@ -33,7 +33,7 @@ import java.awt.image.BufferedImage;
  * @author Kumar Chandra
  * @version 1.0
  */
-class StaticImage extends KImage {
+class StaticImage implements KImage {
     private final PImage image;
     private PImage scaledCopy;
 

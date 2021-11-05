@@ -13,8 +13,6 @@ import java.io.IOException;
 public class DrawingSurface extends PApplet {
     private KCollider img1, img2;
 
-    //just check that this doesn't result in an error
-    @Test
     public void setup() {
         try {
             KCollider.setDefaultAreaDensity(10);

@@ -34,7 +34,7 @@ import processing.core.PImage;
  * @version 1.0
  * @see at.dhyan.open_imaging.GifDecoder
  */
-class KGif extends KImage {
+class KGif implements KImage {
     private final Frame[] frames;
     private int curFrame;
     private long lastTime;
@@ -60,7 +60,7 @@ class KGif extends KImage {
 
     @Override
     public void draw(PApplet p, float x, float y) {
-        super.draw(p, x, y);
+        KImage.super.draw(p, x, y);
         advanceFrame();
     }
 

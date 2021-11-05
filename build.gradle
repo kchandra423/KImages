@@ -8,6 +8,9 @@ version '1.0'
 repositories {
     mavenCentral()
 }
+build{
+    finalizedBy(javadoc)
+}
 
 jar {
     archiveFileName = 'KImages.jar'
