@@ -3,7 +3,7 @@ package examples.KColliders;
 import kchandra423.kColliders.KCollider;
 import kchandra423.kImages.KImage;
 import kchandra423.kImages.KImageBuilder;
-import kchandra423.kImages.MovableKImage;
+import kchandra423.movableKImages.MovableKImage;
 import org.imgscalr.Scalr;
 import org.junit.jupiter.api.Test;
 import processing.core.PApplet;

@@ -21,51 +21,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
-package kchandra423.kImages;
-
-import processing.core.PApplet;
-import processing.core.PImage;
-
 /**
- * A basic class for representing an Image. Supports all files types
- * supported by java advanced imaging, and animates gifs
- *
+ * Adds very basic physics to KImages.
  * @author Kumar Chandra
- * @version 1.0
- * @see PApplet
  */
-public abstract class KImage implements Scalable {
-    public int getWidth() {
-        return getImage().width;
-    }
-
-    public int getHeight() {
-        return getImage().height;
-    }
-
-    /**
-     * Draws this image at the given location on the given PApplet.
-     *
-     * @param p The PApplet to draw on
-     * @param x The x location to draw at
-     * @param y The y location to draw at
-     */
-    public void draw(PApplet p, float x, float y) {
-        p.image(getImage(), x, y);
-    }
-
-    /**
-     * Gets the base Image used by this object
-     *
-     * @return The base image
-     */
-    public abstract PImage getImage();
-
-    /**
-     * Returns a copy of this image
-     *
-     * @return A copy of this KImage
-     */
-    public abstract KImage copy();
-
-}
+package kchandra423.movableKImages;

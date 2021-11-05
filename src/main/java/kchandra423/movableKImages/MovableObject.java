@@ -21,51 +21,70 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
-package kchandra423.kImages;
-
-import processing.core.PApplet;
-import processing.core.PImage;
+package kchandra423.movableKImages;
 
 /**
- * A basic class for representing an Image. Supports all files types
- * supported by java advanced imaging, and animates gifs
+ * A basic implementation of the {@link Movable} interface
  *
  * @author Kumar Chandra
  * @version 1.0
- * @see PApplet
+ * @see Movable
  */
-public abstract class KImage implements Scalable {
-    public int getWidth() {
-        return getImage().width;
+class MovableObject implements Movable {
+    private float x, y, angle;
+    private boolean reflected;
+
+    public MovableObject() {
+        this(0, 0, 0, false);
     }
 
-    public int getHeight() {
-        return getImage().height;
+    public MovableObject(float x, float y, float angle, boolean reflected) {
+        this.x = x;
+        this.y = y;
+        this.angle = angle;
+        this.reflected = reflected;
     }
 
-    /**
-     * Draws this image at the given location on the given PApplet.
+    /*
      *
-     * @param p The PApplet to draw on
-     * @param x The x location to draw at
-     * @param y The y location to draw at
+     * Getters
+     *
      */
-    public void draw(PApplet p, float x, float y) {
-        p.image(getImage(), x, y);
+
+    public float getX() {
+        return x;
     }
 
-    /**
-     * Gets the base Image used by this object
-     *
-     * @return The base image
-     */
-    public abstract PImage getImage();
+    public float getY() {
+        return y;
+    }
 
-    /**
-     * Returns a copy of this image
-     *
-     * @return A copy of this KImage
-     */
-    public abstract KImage copy();
+    public float getAngle() {
+        return angle;
+    }
 
+    public boolean isReflected() {
+        return reflected;
+    }
+
+    /*
+     *
+     * Transformations
+     *
+     */
+
+
+
+    public void moveTo(float x, float y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public void setAngle(float angle) {
+        this.angle = angle;
+    }
+
+    public void setReflected(boolean isReflected) {
+        this.reflected = isReflected;
+    }
 }

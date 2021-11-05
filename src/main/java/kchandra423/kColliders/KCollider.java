@@ -1,7 +1,30 @@
+/*
+MIT License
+
+Copyright (c) 2021 Kumar Chandra
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+ */
 package kchandra423.kColliders;
 
 import kchandra423.kImages.KImage;
-import kchandra423.kImages.MovableKImage;
+import kchandra423.movableKImages.MovableKImage;
 import org.imgscalr.Scalr;
 
 import java.awt.*;
@@ -72,7 +95,7 @@ import java.awt.geom.Area;
  *
  * @author Kumar Chandra
  * @version 1.0
- * @see kchandra423.kImages.MovableKImage
+ * @see MovableKImage
  * @see kchandra423.kImages.KImage
  * @see java.awt.geom.Area
  * @see kchandra423.kColliders.KColliderContainer
@@ -90,10 +113,10 @@ public class KCollider extends MovableKImage {
         }
         KArea area = new KArea();
         //prevent's images with areas bigger than themselves
-        if (areaDensity>image.getWidth()){
+        if (areaDensity > image.getWidth()) {
             areaDensity = image.getWidth();
         }
-        if (areaDensity>image.getHeight()){
+        if (areaDensity > image.getHeight()) {
             areaDensity = image.getHeight();
         }
         //basically just nearest neighbor, uses top left corner
@@ -114,6 +137,7 @@ public class KCollider extends MovableKImage {
     /**
      * Sets the default area density for all new KColliders created. See {@link KCollider} header comment for more information.
      * If the density specified is wider or taller than the width of the inage, the top left corner is still just used.
+     *
      * @param density The area density of any KCollider created
      * @throws IllegalArgumentException Thrown if density is less than 1
      */
@@ -127,6 +151,7 @@ public class KCollider extends MovableKImage {
     /**
      * Constructs a new KCollider with the given KImage. Default area density will be used.
      * Starts at 0,0 with an angle of 0, unreflected and a corner {@link MovableKImage.ImageMode}
+     *
      * @param k The KImage to base the Collider's collision on
      */
     public KCollider(KImage k) {
@@ -136,7 +161,8 @@ public class KCollider extends MovableKImage {
     /**
      * Constructs a new KCollider with the given KImage at the given density.
      * Starts at 0,0 with an angle of 0, unreflected and a corner {@link MovableKImage.ImageMode}
-     * @param k The KImage to base the Collider's collision on
+     *
+     * @param k       The KImage to base the Collider's collision on
      * @param density The density to use for this collider.
      */
     public KCollider(KImage k, int density) {
@@ -148,12 +174,13 @@ public class KCollider extends MovableKImage {
     /**
      * Constructs a new KCollider with the given KImage at the default density.
      * Starts at x,y with an angle of angle, the given reflection and image modes
-     * @param k The KImage to base collisions off of
-     * @param x The initial x location of the Collider
-     * @param y The initial y location of the Collider
-     * @param angle The angle of the Collider
+     *
+     * @param k         The KImage to base collisions off of
+     * @param x         The initial x location of the Collider
+     * @param y         The initial y location of the Collider
+     * @param angle     The angle of the Collider
      * @param reflected The initial reflection orientation of the Collider
-     * @param mode The image mode of the Collider
+     * @param mode      The image mode of the Collider
      */
     public KCollider(KImage k, float x, float y, float angle, boolean reflected, ImageMode mode) {
         this(k, x, y, angle, reflected, mode, defaultAreaDensity);
@@ -162,13 +189,14 @@ public class KCollider extends MovableKImage {
     /**
      * Constructs a new KCollider with the given KImage at the given density.
      * Starts at x,y with an angle of angle, the given reflection and image modes
-     * @param k The KImage to base collisions off of
-     * @param x The initial x location of the Collider
-     * @param y The initial y location of the Collider
-     * @param angle The angle of the Collider
+     *
+     * @param k         The KImage to base collisions off of
+     * @param x         The initial x location of the Collider
+     * @param y         The initial y location of the Collider
+     * @param angle     The angle of the Collider
      * @param reflected The initial reflection orientation of the Collider
-     * @param mode The image mode of the Collider
-     * @param density The density to use for this collider.
+     * @param mode      The image mode of the Collider
+     * @param density   The density to use for this collider.
      */
     public KCollider(KImage k, float x, float y, float angle, boolean reflected, ImageMode mode, int density) {
         super(k, x, y, angle, reflected, mode);
@@ -199,7 +227,7 @@ public class KCollider extends MovableKImage {
 
     @Override
     public void moveTo(float x, float y) {
-        if (x != this.x || y != this.y) {
+        if (x != getX() || y != getY()) {
             super.moveTo(x, y);
             upToDate = false;
         }
@@ -215,7 +243,7 @@ public class KCollider extends MovableKImage {
 
     @Override
     public void setAngle(float angle) {
-        if (angle != this.angle) {
+        if (angle != getAngle()) {
             super.setAngle(angle);
             upToDate = false;
         }
@@ -223,7 +251,7 @@ public class KCollider extends MovableKImage {
 
     @Override
     public void setReflected(boolean isReflected) {
-        if (reflected != isReflected) {
+        if (isReflected() != isReflected) {
             super.setReflected(isReflected);
             upToDate = false;
         }
@@ -270,17 +298,17 @@ public class KCollider extends MovableKImage {
     private void update() {
         upToDate = true;
         AffineTransform transform = new AffineTransform();
-        if (!reflected) {
-            transform.translate(x, y);
-            transform.rotate(angle);
+        if (!isReflected()) {
+            transform.translate(getX(), getY());
+            transform.rotate(getAngle());
         } else {
             transform.scale(-1, 1);
-            transform.translate(-x, y);
-            transform.rotate(-angle);
-            if (mode == ImageMode.CORNER)
+            transform.translate(-getX(), getY());
+            transform.rotate(-getAngle());
+            if (getMode() == ImageMode.CORNER)
                 transform.translate(-getWidth(), 0);
         }
-        if (mode == ImageMode.CENTER)
+        if (getMode() == ImageMode.CENTER)
             transform.translate(-getWidth() / 2f, -getHeight() / 2f);
 
         mostRecentArea = area.createTransformedArea(transform);
@@ -289,12 +317,12 @@ public class KCollider extends MovableKImage {
     @Override
     public void resize(int w, int h, Scalr.Method method, Scalr.Mode mode) {
         super.resize(w, h, method, mode);
-        area = loadArea(image, area.getDensity());
+        area = loadArea(getImage(), area.getDensity());
     }
 
     @Override
     public KCollider copy() {
-        return new KCollider(image.copy(), x, y, angle, reflected, mode, area);
+        return new KCollider(getImage().copy(), getX(), getY(), getAngle(), isReflected(), getMode(), area);
     }
 
 }
