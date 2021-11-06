@@ -21,29 +21,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
-package kchandra423.kImages;
-
-import processing.core.PImage;
-
 /**
- * A class that represents a specific frame in a gif
- *
+ * Adds very basic physics to KImages.
  * @author Kumar Chandra
- * @version 1.0
- * @see KGif
  */
-class Frame extends StaticImage {
-    private final int delay;
-    private int loops;//will be implemented in the future
-
-    Frame(PImage image, int delay) {
-        super(image);
-        this.delay = delay;
-    }
-
-    int getDelay() {
-        return delay;
-    }
-
-
-}
+package kchandra423.movableKImages;

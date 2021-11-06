@@ -1,28 +1,61 @@
 [![CircleCI](https://circleci.com/gh/kchandra423/KImages/tree/main.svg?style=svg)](https://circleci.com/gh/kchandra423/KImages/tree/main)
 
-# Textures
+# KImages
 
 ## Overview
-A simple library to represent images and specifically gifs as movable and resizable textures. Uses processing to draw images. Supports jpeg, png, and gif files. Although processing already supports gifs, they are not properly animated, and would just be shown as a png, like this:
-![static logo](https://i.ytimg.com/vi/nrdYDI6lTlA/maxresdefault.jpg)
 
-However, this library is able to "animate" the gif properly so that is correctly shown like this: 
-![nonstatic logo](https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/67401945-34fc-46b8-8e8f-1982847277d4/ddba22b-2fad9d00-1d3f-4ec8-a65d-199a09dfa4e1.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzY3NDAxOTQ1LTM0ZmMtNDZiOC04ZThmLTE5ODI4NDcyNzdkNFwvZGRiYTIyYi0yZmFkOWQwMC0xZDNmLTRlYzgtYTY1ZC0xOTlhMDlkZmE0ZTEuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.p1RcYkkOBXh0fzpoZxaTbE1_xNWLfoLqEZv1_0utuzU)
+This library is built off of [processing](https://processing.org) and creates some added functionality. While the
+functionality presented is mostly suited for a game, there is a large number of different things in processing this
+would be used for. Some notable features include:
 
-## Usage
+- Supports a wider range of file types (Everything supported
+  by [Java Advanced Imaging](https://github.com/jai-imageio/jai-imageio-core))
+- Images with basic physics and transformation capabilities
+- Adds **precision** collision detection between images
 
-### Adding to project
-The library is in a jar file called textures in the dist folder. You will also need to add all the supports jars in the lib folder.
+## Images
 
-### In projects
-Textures should be created using the TextureBuilder class, as the Texture class itself is abstract since gifs use a different subclass than other image types.
+### File support
 
-## Credit
-The gifs were animated with the help of this gif decoding library: https://github.com/DhyanB/Open-Imaging
+As stated previously a much wider range of image types are supported by
+using [Java Advanced Imaging](https://github.com/jai-imageio/jai-imageio-core)). Most notably, are gifs. While
+processing already technically supports gifs, they aren't animated and just appear like this:
 
-Uses the Processing graphics library to display images.
+![Static](media/Static.jpg)
 
-With help from :https://github.com/Nathaniel-github
+But this library animates the gif to look like this (with the help
+of [Open-Imaging](https://github.com/DhyanB/Open-Imaging)):
 
-## Possible future plans
-In the future I might update the library to be able to do fancier stuff with the gifs, such as having them only play once, or altering the delay of certain or all frames of the gif, at https://github.com/Nathaniel-github 's request.
+![Animated](media/Animated.gif)
+
+### Resizing
+
+This library uses [Scalr](https://github.com/rkalla/imgscalr) to resize images, as opposed to processing's regular
+resize methods. This gives more control for how images should be scaled, as well as better quality and speed. Most
+questions about how resizes are done can probably be answered with a quick look at the documentation of Scalr.
+
+## Transformations
+
+The [MovableKImage](src/main/java/kchandra423/movableKImages/MovableKImage.java) class provides several way of
+performing basic transformation on images, including translation, rotations, and reflection
+![Reflected](media/Reversed.gif)
+
+## Collision detection
+
+Collision detection between Images is done through the KCollider class. Collision accuracy can be modified, with up to
+pixel perfect precision, though this can be very slow.
+
+## Download
+
+This project can be downloaded from the releases section of it's github page, or downloaded directly from
+the [dist folder](dist)
+
+## Documentation
+
+Javadocs for this project are available in the [docs folder](docs) are online on
+the [GitHub pages for this repo](https://kchandra423.github.io/KImages/)
+
+
+
+
+

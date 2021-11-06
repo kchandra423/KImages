@@ -1,15 +1,15 @@
 package examples.MovableKImages;
 
-import java.awt.Dimension;
-
-import javax.swing.JFrame;
-
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 
+import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
+
 public class ImageTransformations {
 
-	public static void main(String args[]) {
+	public static void main(String[] args) throws IOException {
 
 		DrawingSurface drawing = new DrawingSurface();
 		PApplet.runSketch(new String[]{""}, drawing);

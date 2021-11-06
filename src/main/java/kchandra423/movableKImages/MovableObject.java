@@ -21,29 +21,70 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
-package kchandra423.kImages;
-
-import processing.core.PImage;
+package kchandra423.movableKImages;
 
 /**
- * A class that represents a specific frame in a gif
+ * A basic implementation of the {@link Movable} interface
  *
  * @author Kumar Chandra
  * @version 1.0
- * @see KGif
+ * @see Movable
  */
-class Frame extends StaticImage {
-    private final int delay;
-    private int loops;//will be implemented in the future
+class MovableObject implements Movable {
+    private float x, y, angle;
+    private boolean reflected;
 
-    Frame(PImage image, int delay) {
-        super(image);
-        this.delay = delay;
+    public MovableObject() {
+        this(0, 0, 0, false);
     }
 
-    int getDelay() {
-        return delay;
+    public MovableObject(float x, float y, float angle, boolean reflected) {
+        this.x = x;
+        this.y = y;
+        this.angle = angle;
+        this.reflected = reflected;
     }
 
+    /*
+     *
+     * Getters
+     *
+     */
 
+    public float getX() {
+        return x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public float getAngle() {
+        return angle;
+    }
+
+    public boolean isReflected() {
+        return reflected;
+    }
+
+    /*
+     *
+     * Transformations
+     *
+     */
+
+
+
+    public void moveTo(float x, float y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public void setAngle(float angle) {
+        this.angle = angle;
+    }
+
+    public void setReflected(boolean isReflected) {
+        this.reflected = isReflected;
+    }
 }
