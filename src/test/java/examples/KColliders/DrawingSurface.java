@@ -5,7 +5,6 @@ import kchandra423.kImages.KImage;
 import kchandra423.kImages.KImageBuilder;
 import kchandra423.movableKImages.MovableKImage;
 import org.imgscalr.Scalr;
-import org.junit.jupiter.api.Test;
 import processing.core.PApplet;
 
 import java.io.IOException;
@@ -18,9 +17,9 @@ public class DrawingSurface extends PApplet {
             KCollider.setDefaultAreaDensity(10);
             KImage image = KImageBuilder.getKImage("src/test/resources/PNGExample.png");
             image.resize(250, 250, null, Scalr.Mode.FIT_EXACT);
-            img1 = new KCollider(image,0,0,0,false, MovableKImage.ImageMode.CORNER);
+            img1 = new KCollider(image, 0, 0, 0, false, MovableKImage.ImageMode.CORNER);
             img2 = img1.copy();
-            img2.moveTo(300,300);
+            img2.moveTo(300, 300);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -39,16 +38,16 @@ public class DrawingSurface extends PApplet {
     public void keyPressed() {
         switch (key) {
             case 'w':
-                img1.translate(0,-5);
+                img1.translate(0, -5);
                 break;
             case 's':
-                img1.translate(0,5);
+                img1.translate(0, 5);
                 break;
             case 'd':
-                img1.translate(5,0);
+                img1.translate(5, 0);
                 break;
             case 'a':
-                img1.translate(-5,0);
+                img1.translate(-5, 0);
                 break;
             case ' ':
                 img1.setReflected(!img1.isReflected());
@@ -60,7 +59,7 @@ public class DrawingSurface extends PApplet {
                 img1.rotate(-(float) (Math.PI / 10));
                 break;
             case 'c':
-                img1.moveTo(0,0);
+                img1.moveTo(0, 0);
                 img1.setAngle(0);
         }
     }

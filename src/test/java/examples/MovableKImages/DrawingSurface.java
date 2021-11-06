@@ -1,71 +1,60 @@
 package examples.MovableKImages;
 
-import kchandra423.kImages.KImage;
 import kchandra423.kImages.KImageBuilder;
 import kchandra423.movableKImages.MovableKImage;
-import org.imgscalr.Scalr;
-import org.junit.jupiter.api.Test;
 import processing.core.PApplet;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class DrawingSurface extends PApplet {
-    private float angle;
-    private boolean reflected;
-    private float x, y;
-    ArrayList<MovableKImage> examples = new ArrayList<>();
+    private MovableKImage k;
+
+    public DrawingSurface() throws IOException {
+    }
 
     //just check that this doesn't result in an error
 
     public void setup() {
-
+        try {
+            k = new MovableKImage(KImageBuilder.getKImage("src/test/resources/DNGExample.DNG"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        k.resize(250,250);
     }
 
     public void draw() {
         background(200);
-        for (int i = 0; i < examples.size(); i++) {
-            float x = i % 3 * 250;
-            float y = (i / 3) * 250;
-
-            examples.get(i).moveTo(x+this.x, y+this.y);
-
-            examples.get(i).setReflected(reflected);
-
-            examples.get(i).setAngle(angle);
-            examples.get(i).draw(this);
-        }
+        k.draw(this);
     }
 
     public void keyPressed() {
         switch (key) {
             case 'w':
-                y -= 5;
+                k.translate(0,-5);
                 break;
             case 's':
-                y += 5;
+                k.translate(0,5);
                 break;
             case 'd':
-                x += 5;
+                k.translate(5,0);
                 break;
             case 'a':
-                x -= 5;
+                k.translate(-5,0);
                 break;
             case ' ':
-                reflected = !reflected;
+                k.setReflected(!k.isReflected());
                 break;
             case 'f':
-                angle += Math.PI / 10f;
+                k.rotate((float) (Math.PI/10));
                 break;
             case 'r':
-                angle-= Math.PI /10f;
+                k.rotate(-(float) (Math.PI/10));
                 break;
             case 'c':
-                x = 0;
-                y = 0;
-                angle = 0;
-                reflected = false;
+                k.moveTo(0,0);
+                k.setReflected(false);
+                k.setAngle(0);
         }
     }
 

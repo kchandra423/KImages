@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.awt.*;
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class KColliderTest {
     static {
@@ -24,11 +24,13 @@ class KColliderTest {
 
     @Test
     void intersects() throws IOException {
-        //TODO
-//        KCollider img1 = new KCollider(KImageBuilder.getKImage("src/test/resources/PNGExample.png"));
-//        KCollider img2 = new KCollider(KImageBuilder.getKImage("src/test/resources/PNGExample.png"));
-
-
+        KCollider k = new KCollider(KImageBuilder.getKImage("src/test/resources/SmallPNG.png"));
+        KCollider k2 = new KCollider(KImageBuilder.getKImage("src/test/resources/PNGExample.png"));
+        assertTrue(k.intersects(k2));
+        k2.resize(250,250);
+        assertTrue(k.intersects(k2));
+        k2.translate(400,0);
+        assertFalse(k.intersects(k2));
     }
 
     @Test
